@@ -455,8 +455,8 @@ export function registerMessageListeners(
             defaultUri: params.defaultUri ? vscode.Uri.parse(params.defaultUri) : undefined,
             title: params.title,
         })
-
-        return { uris: uris || [] }
+        const urisString = uris?.map((uri) => uri.toString())
+        return { uris: urisString || [] }
     })
 
     languageClient.onRequest<ShowDocumentParams, ShowDocumentResult>(
